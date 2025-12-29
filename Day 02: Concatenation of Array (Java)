@@ -4,6 +4,20 @@
 Given an integer array nums of length n, create an array ans of length 2n such that:
 - ans[i] = nums[i]
 - ans[i + n] = nums[i]
+## Code
+class Solution {
+    public int[] getConcatenation(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[2 * n];
+
+        for (int i = 0; i < n; i++) {
+            ans[i] = nums[i];
+            ans[i + n] = nums[i];
+        }
+        return ans;
+    }
+}
+
 
 ## Example
 Input: [1,2,1]  
