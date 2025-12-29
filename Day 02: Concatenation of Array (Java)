@@ -1,0 +1,24 @@
+# Concatenation of Array
+
+## Problem
+Given an integer array nums of length n, create an array ans of length 2n such that:
+- ans[i] = nums[i]
+- ans[i + n] = nums[i]
+
+## Example
+Input: [1,2,1]  
+Output: [1,2,1,1,2,1]
+
+## Approach
+- Create a new array of size 2n
+- Copy nums into first half
+- Copy nums again into second half
+
+## Time Complexity
+O(n)
+
+## Space Complexity
+O(2n)
+
+## Language
+Java
