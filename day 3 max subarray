@@ -1,0 +1,37 @@
+## 🔹 Problem Statement
+Given an integer array `nums`, find the **contiguous subarray** which has the **largest sum** and return that sum.
+
+## 🔹 Approach: Kadane’s Algorithm
+Kadane’s Algorithm finds the maximum subarray sum in **O(n)** time by making a decision at every index:
+* Start a new subarray
+* OR extend the existing subarray
+## 🔹 Algorithm Steps
+1. Initialize:
+   * `currSum` = `nums[0]`
+   * `maxSum` = `nums[0]`
+2. Traverse array from index `1` to end
+3. At each element:
+currSum = Math.max(nums[i], currSum + nums[i]);
+maxSum = Math.max(maxSum, currSum);
+4. Return `maxSum`
+
+## 🔹 Java Code 
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int currSum = nums[0];
+        int maxSum = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            currSum = Math.max(nums[i], currSum + nums[i]);
+            maxSum = Math.max(maxSum, currSum);
+        }
+
+        return maxSum;
+    }
+}
+
+
+output:
+Input:  [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+Output: 6
+
