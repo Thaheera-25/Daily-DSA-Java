@@ -1,7 +1,7 @@
 ###  Problem Statement
 Given an integer array `nums`, return **true** if any value appears **at least twice** in the array, otherwise return **false** if all elements are distinct.
 
-**Explanation**
+Explanation
 After sorting, the array becomes `[1, 1, 2, 3]`.
 Since two equal elements are adjacent, a duplicate exists.
 
@@ -10,9 +10,9 @@ Instead of comparing every pair, we:
 1. **Sort the array**
 2. Check only **adjacent elements**
 3. If two neighbors are equal → duplicate found
-👉 Sorting brings equal values next to each other.
+ Sorting brings equal values next to each other.
 
-## 🔄 Algorithm
+## Algorithm
 
 1. Sort the array using `Arrays.sort()`
 2. Traverse from index `1` to `n-1`
@@ -38,10 +38,8 @@ class Solution {
 }
 
 Example
-
 Input
 nums = [1, 2, 3, 1]
-
 Output
 true
 
