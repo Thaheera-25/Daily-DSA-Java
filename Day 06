@@ -3,7 +3,6 @@
 ## 🧩 Problem Description
 Given an integer array `nums`, return the **sum of divisors** of the integers in that array that have **exactly four divisors**.
 If no such integer exists, return `0`.
-
 ## 🧪 Example
 **Input**
 nums = [21, 4, 7]
