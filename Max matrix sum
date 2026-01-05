@@ -1,0 +1,54 @@
+
+## 📌 Problem Statement
+You are given an `n × n` integer matrix.  
+You can choose any two **adjacent elements** and multiply both by `-1` any number of times.
+Two elements are adjacent if they share a border.
+
+Your task is to **maximize the sum of all elements** in the matrix.
+## 🧠 Key Idea
+- Flipping signs always happens in **pairs**
+- Only the **parity (odd/even)** of negative numbers matters
+- To maximize sum:
+  - Convert all numbers to their **absolute values**
+  - If the count of negative numbers is **odd**, one smallest value must remain negative
+
+## ✅ Algorithm
+1. Traverse the matrix
+2. Compute sum of absolute values
+3. Count negative numbers
+4. Track the smallest absolute value
+5. If negatives are odd → subtract `2 × smallest value`
+
+Code
+class Solution {
+    public long maxMatrixSum(int[][] matrix) {
+        int n = matrix.length;
+        long sum = 0;
+        int min = Integer.MAX_VALUE;
+        int negativeCount = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                int val = matrix[i][j];
+                if (val < 0) {
+                    negativeCount++;
+                }
+                int absVal = Math.abs(val);
+                sum += absVal;
+                if (absVal < min) {
+                    min = absVal;
+                }
+            }
+        }
+
+        if (negativeCount % 2 != 0) {
+            sum -= 2L * min;
+        }
+        return sum;
+    }
+}
+
+## ⏱ Time & Space Complexity
+- **Time Complexity:** O(n²)
+- **Space Complexity:** O(1)
+
