@@ -1,0 +1,55 @@
+ Remove Duplicates from Sorted Linked List
+## 📌 Problem Statement
+Given the head of a **sorted linked list**, delete all duplicates such that **each element appears only once**.
+Return the linked list **sorted** after removing duplicates.
+## 💡 Explanation
+Since the linked list is **already sorted**, all duplicate elements will appear **next to each other**.
+### Approach:
+* Traverse the linked list using a pointer.
+* Compare the current node with the next node.
+* If both values are the same, skip the next node.
+* Otherwise, move to the next node.
+* Continue until the end of the list.
+
+## ✅ Algorithm
+
+1. Initialize a pointer `curr` to the head.
+2. While `curr` and `curr.next` are not null:
+
+   * If `curr.val == curr.next.val`, remove duplicate by skipping `curr.next`.
+   * Else, move `curr` forward.
+3. Return the head of the modified linked list.
+
+## ⏱ Complexity Analysis
+
+* **Time Complexity:** `O(n)`
+* **Space Complexity:** `O(1)`
+
+
+### Input
+1 → 1 → 2 → 3 → 3
+
+
+### Output
+
+1 → 2 → 3
+
+##  Java Code
+
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+
+        ListNode curr = head;
+
+        while (curr != null && curr.next != null) {
+            if (curr.val == curr.next.val) {
+                curr.next = curr.next.next; // remove duplicate
+            } else {
+                curr = curr.next; // move forward
+            }
+        }
+
+        return head;
+    }
+}
+
